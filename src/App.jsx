@@ -27,7 +27,7 @@ export default function App(){
 
         <footer className="footer">
           <TagSelector tags={tags} active={tag} onChange={setTag} />
-          <div className="hint">Pressione <kbd>ESPAÇO</kbd> para sortear </div>
+          <div className="hint">Pressione <kbd> ESPAÇO </kbd> para sortear </div>
         </footer>
       </div>
     </div>

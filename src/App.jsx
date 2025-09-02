@@ -9,7 +9,7 @@ export default function App(){
     <div className="app">
       <div className="card" aria-live="polite">
         <header className="header">
-          <div className="brand">Starword<span style={{opacity:.5}}> • </span></div>
+          <div className="brand">Starword</div>
           <div className="actions">
             <button className="btn" onClick={copy} title="Copiar (Ctrl/Cmd+C)">
               Copiar
@@ -27,7 +27,7 @@ export default function App(){
 
         <footer className="footer">
           <TagSelector tags={tags} active={tag} onChange={setTag} />
-          <div className="hint">Pressione <kbd> ESPAÇO </kbd> para sortear </div>
+          <div className="hint">Pressione <kbd> ESPAÇO</kbd> para sortear </div>
         </footer>
       </div>
     </div>

@@ -10,6 +10,7 @@
   --shadow: 0 8px 40px rgba(0,0,0,.35);
 }
 
+/* Reset básico */
 *{box-sizing:border-box}
 html,body,#root{height:100%}
 body{
@@ -19,6 +20,7 @@ body{
   color: var(--text);
 }
 
+/* App container */
 .app{
   min-height:100%;
   display:grid;
@@ -26,6 +28,7 @@ body{
   padding:24px;
 }
 
+/* Card principal */
 .card{
   width:min(680px, 92vw);
   background: linear-gradient(180deg, var(--panel), #121215);
@@ -35,9 +38,9 @@ body{
   padding:28px;
   transition: transform .18s ease;
 }
-
 .card:active{ transform: scale(.998); }
 
+/* Header */
 .header{
   display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:16px;
 }
@@ -45,38 +48,52 @@ body{
   font-weight:700; letter-spacing:.3px;
 }
 
-@media (max-width: 480px) {
-  .actions {
-    flex-direction: column; 
-    gap: 6px;
-  }
-  .actions .btn {
-    width: 100%;
-  }
+/* Ações dos botões */
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap: wrap;
+  justify-content:flex-end;
 }
-
-
-
-.btn{
+.actions .btn{
+  flex:1 1 auto;
+  min-width:100px;
+  max-width:160px;
   border:1px solid var(--border);
-  background: #16161a;
-  color: var(--text);
+  background:#16161a;
+  color:var(--text);
   padding:10px 14px;
   border-radius:12px;
   cursor:pointer;
   font-weight:600;
   transition: transform .12s ease, background .2s ease, border-color .2s ease;
 }
-.btn:hover{ background:#1a1a20; transform: translateY(-1px); }
-.btn:active{ transform: translateY(0); }
+.actions .btn:hover{ background:#1a1a20; transform: translateY(-1px); }
+.actions .btn:active{ transform: translateY(0); }
 
-.btn-accent{
-  background: linear-gradient(90deg, var(--accent), #9a7cff);
-  color:#0b0b0f;
-  border:none;
+.btn-accent {
+  background: linear-gradient(90deg, #FFD700, #FFC107); /* gradiente dourado */
+  color: #0b0b0f; /* texto escuro para contraste */
+  border: none;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4); /* brilho suave */
+  font-weight: 600;
+  transition: transform .12s ease, filter .2s ease, box-shadow .2s ease;
 }
+
+.btn-accent:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.5);
+}
+
+.btn-accent:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(255, 215, 0, 0.3);
+}
+
 .btn-accent:hover{ filter: brightness(1.03); }
 
+/* Quote */
 .quote{
   font-size: clamp(20px, 3.2vw, 28px);
   line-height:1.4;
@@ -88,6 +105,7 @@ body{
   font-size: 15px;
 }
 
+/* Tags */
 .tags{
   display:flex; gap:8px; flex-wrap:wrap; margin-top:18px;
 }
@@ -102,36 +120,66 @@ body{
 .chip:hover{ background: var(--chip-active); color: var(--text); transform: translateY(-1px); }
 .chip--active{ background: var(--chip-active); color: var(--text); }
 
-@media (max-width: 480px) {
-  .footer {
+/* Footer */
+.footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:24px;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.hint{
+  color: var(--muted);
+  font-size:13px;
+  flex-shrink:0;
+}
+
+/* Botão para mostrar/ocultar tags (opcional dropdown) */
+.toggle-tags{
+  background:transparent;
+  border:none;
+  color:var(--text);
+  font-size:0.9rem;
+  cursor:pointer;
+  margin-bottom:6px;
+  transition: opacity .2s ease;
+}
+.toggle-tags:hover{
+  opacity:0.7;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 480px){
+  /* Header buttons empilhados */
+  .actions{
     flex-direction: column;
-    align-items: flex-start; 
-    gap: 10px;
+    align-items: stretch;
+    gap:10px;
   }
-  .hint {
-    margin-top: 4px;
+
+  /* Footer empilhado */
+  .footer{
+    flex-direction: column;
+    align-items: flex-start;
+    gap:12px;
+  }
+
+  /* Hint com margem */
+  .hint{
+    margin-top:6px;
+  }
+
+  /* Tags ocupam toda largura */
+  .tags{
+    justify-content: flex-start;
+  }
+
+  .chip{
+    flex:1 1 auto;
+    min-width: 80px;
+    text-align: center;
   }
 }
 
-
-
-.toggle-tags {
-  background: transparent;
-  border: none;
-  color: var(--text);
-  font-size: 0.9rem;
-  cursor: pointer;
-  margin-top: 8px;
-  transition: opacity 0.2s ease;
-}
-
-.toggle-tags:hover {
-  opacity: 0.7;
-}
-
-.tag-selector {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 

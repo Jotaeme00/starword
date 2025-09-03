@@ -10,7 +10,7 @@
   --shadow: 0 8px 40px rgba(0,0,0,.35);
 }
 
-/* Reset básico */
+
 *{box-sizing:border-box}
 html,body,#root{height:100%}
 body{
@@ -20,7 +20,7 @@ body{
   color: var(--text);
 }
 
-/* App container */
+
 .app{
   min-height:100%;
   display:grid;
@@ -28,7 +28,7 @@ body{
   padding:24px;
 }
 
-/* Card principal */
+
 .card{
   width:min(680px, 92vw);
   background: linear-gradient(180deg, var(--panel), #121215);
@@ -40,7 +40,7 @@ body{
 }
 .card:active{ transform: scale(.998); }
 
-/* Header */
+
 .header{
   display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:16px;
 }
@@ -48,7 +48,7 @@ body{
   font-weight:700; letter-spacing:.3px;
 }
 
-/* Ações dos botões */
+
 .actions{
   display:flex;
   gap:12px;
@@ -72,10 +72,10 @@ body{
 .actions .btn:active{ transform: translateY(0); }
 
 .btn-accent {
-  background: linear-gradient(90deg, #FFD700, #FFC107); /* gradiente dourado */
-  color: #0b0b0f; /* texto escuro para contraste */
+  background: linear-gradient(90deg, #FFD700, #FFC107); 
+  color: #0b0b0f;
   border: none;
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4); /* brilho suave */
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4); 
   font-weight: 600;
   transition: transform .12s ease, filter .2s ease, box-shadow .2s ease;
 }
@@ -93,7 +93,7 @@ body{
 
 .btn-accent:hover{ filter: brightness(1.03); }
 
-/* Quote */
+
 .quote{
   font-size: clamp(20px, 3.2vw, 28px);
   line-height:1.4;
@@ -105,7 +105,7 @@ body{
   font-size: 15px;
 }
 
-/* Tags */
+
 .tags{
   display:flex; gap:8px; flex-wrap:wrap; margin-top:18px;
 }
@@ -120,7 +120,7 @@ body{
 .chip:hover{ background: var(--chip-active); color: var(--text); transform: translateY(-1px); }
 .chip--active{ background: var(--chip-active); color: var(--text); }
 
-/* Footer */
+
 .footer{
   display:flex;
   justify-content:space-between;
@@ -135,7 +135,7 @@ body{
   flex-shrink:0;
 }
 
-/* Botão para mostrar/ocultar tags (opcional dropdown) */
+
 .toggle-tags{
   background:transparent;
   border:none;
@@ -149,28 +149,26 @@ body{
   opacity:0.7;
 }
 
-/* Responsividade para telas pequenas */
+
 @media (max-width: 480px){
-  /* Header buttons empilhados */
+  
   .actions{
     flex-direction: column;
     align-items: stretch;
     gap:10px;
   }
 
-  /* Footer empilhado */
+  
   .footer{
     flex-direction: column;
     align-items: flex-start;
     gap:12px;
   }
 
-  /* Hint com margem */
   .hint{
     margin-top:6px;
   }
 
-  /* Tags ocupam toda largura */
   .tags{
     justify-content: flex-start;
   }

@@ -191,20 +191,49 @@ body{
   }
 }
 
-.floating-star {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle, #fff 30%, #ffd700 70%, transparent 100%);
-  border-radius: 50%;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.8),
-              0 0 24px rgba(255, 215, 0, 0.5);
-
-  animation: floatOrbit 20s linear infinite;
+.star {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background: gold;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 
+    68% 57%, 79% 91%, 50% 70%, 
+    21% 91%, 32% 57%, 2% 35%, 
+    39% 35%
+  );
+  box-shadow: 0 0 10px gold, 0 0 20px gold;
+  animation: floatStar 4s ease-in-out infinite alternate,
+             rotateStar 6s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
 }
 
-@keyframes floatOrbit {
-  0%   { transform: rotate(0deg) translateX(200px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+
+@keyframes floatStar {
+  0% { transform: translate(-50%, 0) translateY(0); }
+  50% { transform: translate(-50%, 0) translateY(-20px); }
+  100% { transform: translate(-50%, 0) translateY(0); }
 }
+
+
+@keyframes rotateStar {
+  0% { transform: translate(-50%, 0) rotate(0deg); }
+  100% { transform: translate(-50%, 0) rotate(360deg); }
+}
+
+
+@media (max-width: 768px) {
+  .star {
+    width: 15px;
+    height: 15px;
+    top: 10%;
+    left: 80%;
+    box-shadow: 0 0 5px gold, 0 0 10px gold;
+  }
+}
+
+
 

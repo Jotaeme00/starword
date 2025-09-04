@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import data from "../data/quotes.json";
 
-
 function pickRandom(arr, excludeId) {
   if (!arr || arr.length === 0) return null;
 
@@ -26,7 +25,8 @@ export function useQuotes() {
     return data.filter(q => q.tags.includes(tag));
   }, [tag]);
 
-  const [quote, setQuote] = useState(() => pickRandom(filtered));
+  // começa SEM frase
+  const [quote, setQuote] = useState(null);
 
   const next = useCallback(() => {
     const q = pickRandom(filtered, lastId.current);
@@ -68,6 +68,13 @@ export function useQuotes() {
     localStorage.setItem("mot_tag", tag);
   }, [tag]);
 
+  // quando mudar a tag, apenas limpa a frase atual
+  useEffect(() => {
+    setQuote(null);
+    lastId.current = null;
+  }, [filtered]);
+
+  // atalho: espaço também só funciona se chamar next()
   useEffect(() => {
     const onKey = e => {
       if (e.code === "Space" || e.key === " ") {
@@ -79,14 +86,7 @@ export function useQuotes() {
     return () => window.removeEventListener("keydown", onKey);
   }, [next]);
 
-  useEffect(() => {
-    const q = pickRandom(filtered);
-    if (q) {
-      lastId.current = q.id;
-      setQuote(q);
-    }
-  }, [filtered]);
-
   return { quote, tags, tag, setTag, next, copy, share };
 }
+
 

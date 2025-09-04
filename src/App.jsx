@@ -7,23 +7,30 @@ export default function App(){
 
   return (
     <div className="app">
-      <div className="card" aria-live="polite">
-        <header className="header">
-          <div className="brand">Starword</div>
-          <div className="actions">
-            <button className="btn" onClick={copy} title="Copiar (Ctrl/Cmd+C)">
-              Copiar
-            </button>
-            <button className="btn" onClick={share} title="Compartilhar">
-              Compartilhar
-            </button>
-            <button className="btn btn-accent" onClick={next} title="Próxima (Espaço)">
-              Próxima
-            </button>
-          </div>
-        </header>
+      <div className="floating-star"></div>
+       <div className="card" aria-live="polite">
+         <header className="header">
+           <div className="brand">STARWORD</div>
+           <div className="actions">
+             <button className="btn" onClick={copy} title="Copiar (Ctrl/Cmd+C)" disabled={!quote}>
+               Copiar
+             </button>
+             <button className="btn" onClick={share} title="Compartilhar" disabled={!quote}>
+               Compartilhar
+             </button>
+             <button className="btn btn-accent" onClick={next} title="Próxima (Espaço)">
+               Gerar
+             </button>
+           </div>
+         </header>
 
-        <QuoteCard quote={quote} />
+        {quote ? (
+          <QuoteCard quote={quote} />
+        ) : (
+          <div className="placeholder">
+            Clique em <b>Gerar</b> para receber sua frase!
+          </div>
+        )}
 
         <footer className="footer">
           <TagSelector tags={tags} active={tag} onChange={setTag} />
@@ -33,4 +40,5 @@ export default function App(){
     </div>
   );
 }
+
 

@@ -23,7 +23,7 @@ export default function TagSelector({ tags, active, onChange }) {
               className={`chip ${active === t ? "chip--active" : ""}`}
               onClick={() => onChange(t)}
             >
-              {t.charAt(0).toUpperCase() + t.slice(1)} {/* Capitaliza */}
+              {t.charAt(0).toUpperCase() + t.slice(1)} 
             </button>
           ))}
         </div>

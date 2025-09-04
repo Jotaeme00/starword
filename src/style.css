@@ -13,6 +13,7 @@
 
 *{box-sizing:border-box}
 html,body,#root{height:100%}
+
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
@@ -21,31 +22,41 @@ body{
 }
 
 
-.app{
-  min-height:100%;
-  display:grid;
-  place-items:center;
-  padding:24px;
+.app {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: radial-gradient(circle at center, rgba(122,124,255,0.08) 0%, transparent 60%);
 }
 
 
-.card{
-  width:min(680px, 92vw);
-  background: linear-gradient(180deg, var(--panel), #121215);
-  border:1px solid var(--border);
-  border-radius:18px;
-  box-shadow: var(--shadow);
-  padding:28px;
-  transition: transform .18s ease;
+
+.card {
+  width: min(800px, 95vw);   
+  padding: 40px 36px;        
+  border-radius: 22px;       
 }
+
 .card:active{ transform: scale(.998); }
 
 
 .header{
   display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:16px;
 }
-.brand{
-  font-weight:700; letter-spacing:.3px;
+.brand {
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f5f5f5;
+
+  
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.1), 
+  0 0 16px rgba(0, 200, 255, 0.2);
+
+  margin-right: auto; 
 }
 
 
@@ -180,4 +191,20 @@ body{
   }
 }
 
+.floating-star {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #fff 30%, #ffd700 70%, transparent 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.8),
+              0 0 24px rgba(255, 215, 0, 0.5);
+
+  animation: floatOrbit 20s linear infinite;
+}
+
+@keyframes floatOrbit {
+  0%   { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+}
 

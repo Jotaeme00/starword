@@ -193,8 +193,8 @@ body{
 
 .star {
   position: fixed;
-  top: 20%;
-  left: 50%;
+  top: 20vh;  
+  left: 50vw; 
   width: 30px;
   height: 30px;
   background: gold;
@@ -205,6 +205,7 @@ body{
     39% 35%
   );
   box-shadow: 0 0 10px gold, 0 0 20px gold;
+  transform: translate(-50%, -50%); 
   animation: floatStar 4s ease-in-out infinite alternate,
              rotateStar 6s linear infinite;
   pointer-events: none;
@@ -213,15 +214,15 @@ body{
 
 
 @keyframes floatStar {
-  0% { transform: translate(-50%, 0) translateY(0); }
-  50% { transform: translate(-50%, 0) translateY(-20px); }
-  100% { transform: translate(-50%, 0) translateY(0); }
+  0% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-20px); }
+  100% { transform: translate(-50%, -50%) translateY(0); }
 }
 
 
 @keyframes rotateStar {
-  0% { transform: translate(-50%, 0) rotate(0deg); }
-  100% { transform: translate(-50%, 0) rotate(360deg); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 
@@ -229,11 +230,12 @@ body{
   .star {
     width: 15px;
     height: 15px;
-    top: 10%;
-    left: 80%;
+    top: 10vh;   
+    left: 80vw;  
     box-shadow: 0 0 5px gold, 0 0 10px gold;
   }
 }
+
 
 
 

@@ -192,11 +192,10 @@ body{
 }
 
 .star {
-  position: fixed;
-  top: 20vh;  
-  left: 50vw; 
-  width: 30px;
-  height: 30px;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
   background: gold;
   clip-path: polygon(
     50% 0%, 61% 35%, 98% 35%, 
@@ -204,37 +203,23 @@ body{
     21% 91%, 32% 57%, 2% 35%, 
     39% 35%
   );
-  box-shadow: 0 0 10px gold, 0 0 20px gold;
-  transform: translate(-50%, -50%); 
-  animation: floatStar 4s ease-in-out infinite alternate,
-             rotateStar 6s linear infinite;
-  pointer-events: none;
-  z-index: 9999;
+  box-shadow: 0 0 5px gold, 0 0 10px gold;
+  animation: rotateStar 3s linear infinite;
+  vertical-align: middle;
 }
-
-
-@keyframes floatStar {
-  0% { transform: translate(-50%, -50%) translateY(0); }
-  50% { transform: translate(-50%, -50%) translateY(-20px); }
-  100% { transform: translate(-50%, -50%) translateY(0); }
-}
-
 
 @keyframes rotateStar {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-
 @media (max-width: 768px) {
   .star {
-    width: 15px;
-    height: 15px;
-    top: 10vh;   
-    left: 80vw;  
-    box-shadow: 0 0 5px gold, 0 0 10px gold;
+    width: 18px;
+    height: 18px;
   }
 }
+
 
 
 

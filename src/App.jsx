@@ -2,15 +2,17 @@ import QuoteCard from "./components/QuoteCard.jsx";
 import TagSelector from "./components/TagSelector.jsx";
 import { useQuotes } from "./hooks/useQuotes.js";
 
-export default function App(){
+export default function App() {
   const { quote, tags, tag, setTag, next, copy, share } = useQuotes();
 
   return (
-    <div className="app"> 
-    <div className="star"></div>
+    <div className="app">
       <div className="card" aria-live="polite">
         <header className="header">
-          <div className="brand">Starword</div>
+          <div className="brand">
+            Starword
+            <span className="star"></span> {/* estrela girando ao lado do título */}
+          </div>
           <div className="actions">
             <button className="btn" onClick={copy} title="Copiar (Ctrl/Cmd+C)">
               Copiar
@@ -28,7 +30,9 @@ export default function App(){
 
         <footer className="footer">
           <TagSelector tags={tags} active={tag} onChange={setTag} />
-          <div className="hint">Pressione <kbd> ESPAÇO</kbd> para sortear </div>
+          <div className="hint">
+            Pressione <kbd>ESPACO</kbd> para sortear
+          </div>
         </footer>
       </div>
     </div>
